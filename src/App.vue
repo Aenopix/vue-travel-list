@@ -3,10 +3,11 @@ import VForm from './components/VForm.vue';
 import VItemList from './components/VItemList.vue';
 import VFooter from './components/VFooter.vue';
 import VLogo from './components/VLogo.vue';
+import itemJSON from './assets/items.json'
 
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
-const items = ref([])
+const items = ref(itemJSON)
 
 function handleAddItem(item) {
   items.value.push(item)
@@ -30,16 +31,6 @@ function handleClearList() {
   if (confirmed)
     items.value = []
 }
-
-onMounted(async () => {
-  try {
-    const response = await fetch('/items.json');
-    const data = await response.json();
-    items.value = data;
-  } catch (error) {
-    console.error('Error fetching items:', error);
-  }
-})
 </script>
 
 <template>
