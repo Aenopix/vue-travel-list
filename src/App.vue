@@ -1,13 +1,12 @@
 <script setup>
-import VForm from './components/VForm.vue';
-import VItemList from './components/VItemList.vue';
-import VFooter from './components/VFooter.vue';
-import VLogo from './components/VLogo.vue';
-import itemJSON from './assets/items.json'
+import VForm from './components/VForm.vue'
+import VItemList from './components/VItemList.vue'
+import VFooter from './components/VFooter.vue'
+import VLogo from './components/VLogo.vue'
 
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const items = ref(itemJSON)
+const items = ref([])
 
 function handleAddItem(item) {
   items.value.push(item)
@@ -27,7 +26,6 @@ function handleClearList() {
   const confirmed = window.confirm(
     "Are you sure you want to delete all items?"
   )
-
   if (confirmed)
     items.value = []
 }

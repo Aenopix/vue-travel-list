@@ -1,6 +1,6 @@
 <script setup>
-import { computed, ref } from 'vue';
-import VItem from './VItem.vue';
+import { computed, ref } from 'vue'
+import VItem from './VItem.vue'
 
 const props = defineProps({
   items: Array
@@ -17,13 +17,13 @@ const sortedItems = computed(() => {
   if (sortValue.value === 'description') {
     return [...props.items].sort((a, b) =>
       a.description.localeCompare(b.description)
-    );
+    )
   }
 
   if (sortValue.value === 'packed') {
     return [...props.items].sort((a, b) =>
       Number(a.packed) - Number(b.packed)
-    );
+    )
   }
 
   return props.items
